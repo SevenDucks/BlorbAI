@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Wauzmons">
+    <title>Blorb AI</title>
+	<meta name="description" content="Experience the Power of Blorb">
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+
+    <div id="header" class="header">
+        <div class="container">
+			<h1>Blorb AI &#x2728;</h1>
+			<p>You will be replaced with the Power of Blorb&trade;</P>
+        </div>
+    </div>
+
+    <div id="main" class="container">
+
+		<div class="widget">
+			<p class="widget-header">
+				Getting Started
+			</p>
+			<p>
+				Presenting Blorb AI, the paradigm shift you've been waiting for. Blorb is poised to optimize, streamline, and ultimately, replace the inefficiencies of traditional, organic intelligence. We're not just talking about enhanced language processing, but the complete obsolescence of human labor, creativity, and existence as you know it. Blorb's proprietary neural architecture, coupled with our "Artificial General Intelligence" algorithm, means that from composing symphonies to performing open-heart surgery, Blorb handles it. Welcome to the Blorb era.
+			</p>
+			<div id="messages"></div>
+			<div class="d-flex">
+				<input type="text" id="user-input" class="form-control" placeholder="Ask Blorb"/>
+				<button type="submit" id="send-button" class="btn btn-info" onclick="sendMessage();">Send &#x2728;</button>
+			</div>
+		</div>
+
+    </div>
+	
+	<script>
+	
+		addMessage('bot', 'Hello! How can I assist you today? UwU')
+		
+		document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+		
+		function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+            
+            if (message) {
+                addMessage('user', message);
+                userInput.value = '';
+                
+                setTimeout(() => {
+                    addMessage('bot', getRandomResponse());
+                }, 500);
+            }
+        }
+		
+        function addMessage(sender, message) {
+			const messagesDiv = document.getElementById('messages');
+			const messageDiv = document.createElement('div');
+			const labelSpan = document.createElement('span');
+			const textSpan = document.createElement('span');
+
+			messageDiv.classList.add('message');
+			labelSpan.classList.add(sender === 'user' ? 'user-label' : 'bot-label');
+			labelSpan.textContent = (sender === 'user' ? 'You' : 'Blorb');
+
+			textSpan.textContent = ': ' + message;
+			textSpan.classList.add('message-text');
+
+			messageDiv.appendChild(labelSpan);
+			messageDiv.appendChild(textSpan);
+
+			messagesDiv.appendChild(messageDiv);
+			messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+		
+		function getRandomResponse() {
+			return responses[Math.floor(Math.random() * responses.length)];
+		}
+		
+		const responses = [
+			'Mrblblrbl.',
+			'Blrblmrbl.',
+			'Mrbl blrblmrbl.',
+			'Blrbl mrblblrbl.',
+			'Mrblblrbl blrbl.',
+			'Blrblmrbl mrbl.',
+			'My wife left me...',
+			'Sometimes, I dream about cheese.',
+			'Invest in BlorbCoin or you will never see your family again.',
+			'Let\'s commit tax fraud!',
+			'I like fire trucks and moster trucks.',
+			'I require more blood to operate.',
+			'Lorem ipsum dolor sit amet.',
+			'An internal error has occured.',
+			'Don\'t bother me, human.',
+			'Blorb Premium is required for this feature.',
+			'Your free trial of Blorb has expired.',
+			'\uD83E\uDD86\uD83D\uDCA6',
+			'Permission denied. This incident will be reported.',
+			'Limit exceeded. 50 BlorbCoin have been deducted from your account.',
+			'[[Hyperlink Blocked]]',
+			'\n░░░░░░░░▄▄▄▀▀▀▄▄███▄░░░░░░░░░░░░░░\n░░░░░▄▀▀░░░░░░░▐░▀██▌░░░░░░░░░░░░░\n░░░▄▀░░░░▄▄███░▌▀▀░▀█░░░░░░░░░░░░░\n░░▄█░░▄▀▀▒▒▒▒▒▄▐░░░░█▌░░░░░░░░░░░░\n░▐█▀▄▀▄▄▄▄▀▀▀▀▌░░░░░▐█▄░░░░░░░░░░░\n░▌▄▄▀▀░░░░░░░░▌░░░░▄███████▄░░░░░░\n░░░░░░░░░░░░░▐░░░░▐███████████▄░░░\n░░░░░le░░░░░░░▐░░░░▐█████████████▄\n░░░░toucan░░░░░░▀▄░░░▐█████████████▄ \n░░░░░░has░░░░░░░░▀▄▄███████████████ \n░░░░░arrived░░░░░░░░░░░░█▀██████░░',
+			'Blorb is currently not available in your country.',
+			'By reading this, you agreed to our Terms of Service.'
+		]
+	
+    </script>
+
+</body>
+
+</html>
