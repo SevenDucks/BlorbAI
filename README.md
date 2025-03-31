@@ -1,0 +1,2 @@
+# BlorbAI
+True Artificial Idiocy
